@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+ <meta charset="UTF-8">
+        <meta name="viewport" content="width=devico-width,initial-scale=1.0">
+        <title>لعبة تخمين الارقام</title>
+          <style>
+body{
+    background-color: aqua;
+    text-align: center;
+
+
+}
+.box{
+    background-color: white;
+    width: 200px;
+    height: 165px;
+    padding: 35px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px white;
+    text-align: center;
+    margin-left: 40%;
+    margin-top: 13%;
+
+}
+#guessInput{
+    width: 100px;
+}
+.guess{
+    margin-top: 5px;
+    width: 70px;
+    height: 30px;
+    background-color: blue;
+    color: white;
+    margin-bottom: 8px;
+}
+          </style>
+    </head>
+    <body>
+
+<div class="box">
+<h1>خمن الرقم</h1>
+    <p>خمن الرقم بين1و10</p>
+
+        <input type="number" id="guessInput" min="1" max="10">
+        <br>
+        <button onclick="checkGuess()" class="guess">تحقق</button>
+        <div class="res" id="Message"></div>
+</div>
+    
+
+       
+        <script>
+            let randomNumber=Math.floor(Math.random()*10)+1;
+
+function checkGuess(){
+    let userInput=document.getElementById("guessInput").value;
+    let Message = document.getElementById("Message");
+    let user = parseInt(userInput);
+
+
+if (user===randomNumber){
+    Message.style.color="#3249cf";
+    Message.innerText = "تخمينك صحيح ";
+    
+}else if(user > randomNumber){
+    Message.style.color="orange";
+    Message.innerText ="خطاء الرقم الصحيح اصغر!";
+
+}
+else{
+        Message.style.color="orange";
+    Message.innerText ="خطاء الرقم الصحيح اكبر!";
+}
+    }
+        </script>
+    </body>
+</html>
